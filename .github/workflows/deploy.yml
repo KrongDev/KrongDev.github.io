@@ -25,6 +25,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        run: echo ${{ steps.deployment.outputs.page_url }}
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
