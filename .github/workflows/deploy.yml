@@ -13,29 +13,35 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
-
+        run: echo project check
       - name: Setup Node
         uses: actions/setup-node@v1
+        run: echo node setup
         with:
           node-version: 16
 
       - name: Install dependencies
-        run: yarn install
+        run:
+          echo dependencies install
+          yarn install
 
       - name: Build project
-        run: npm run build
+        run:
+          echo project build 
+          yarn build
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v2
         with:
           name: production-files
           path: ./dist
+        run: echo project upload
 
   deploy:
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+#    if: github.ref == 'refs/heads/main'
 
     steps:
       - name: Download artifact
@@ -43,9 +49,11 @@ jobs:
         with:
           name: production-files
           path: ./dist
+        run: echo project download
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
+        run: echo project deploy
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
