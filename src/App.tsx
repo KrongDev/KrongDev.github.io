@@ -8,6 +8,7 @@ function App() {
 
   return (
     <>
+        아리랑 잘 배포 되는 지 테스트를 해봐야할거같아요~~~~~
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
