@@ -6,7 +6,7 @@
   "homepage": "/KrongDev.github.io/",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && cp dist/index.html",
+    "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
