@@ -13,20 +13,18 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
-        run: echo project check
       - name: Setup Node
         uses: actions/setup-node@v1
-        run: echo node setup
         with:
           node-version: 16
 
       - name: Install dependencies
-        run:  |
+        run:
           echo dependencies install
           yarn install
 
       - name: Build project
-        run:  |
+        run:
           echo project build 
           yarn build
 
