@@ -21,12 +21,12 @@ jobs:
           node-version: 16
 
       - name: Install dependencies
-        run:
+        run:  |
           echo dependencies install
           yarn install
 
       - name: Build project
-        run:
+        run:  |
           echo project build 
           yarn build
 
