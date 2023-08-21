@@ -1,4 +1,5 @@
 import {Button} from "react-bootstrap";
+import {Input} from "postcss";
 
 
 const testPage=() => {
@@ -12,6 +13,7 @@ const testPage=() => {
             <Button variant="danger">Danger</Button> <Button variant="info">Info</Button>{' '}
             <Button variant="light">Light</Button> <Button variant="dark">Dark</Button>{' '}
             <Button variant="link">Link</Button>
+            <input type={'text'}/>
         </div>
     )
 }
