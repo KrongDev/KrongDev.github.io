@@ -1,6 +1,5 @@
 import {Sidebar} from "@/src/comp";
 import {ReactElement} from "react";
-import {useLayout} from "@/src/hooks";
 
 
 type Props = {
@@ -8,7 +7,6 @@ type Props = {
 }
 
 const Layout = ({ children }: Props) => {
-    const [ status ] = useLayout();
 
     return (
         <>
