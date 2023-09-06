@@ -8,8 +8,9 @@
 
 
 ### 사용 stack
-typescript
-React + next.js
-github workflow (Actions)
-github api
+
+1. typescript 
+2. React + next.js
+3. github workflow (Actions)
+4. github api
 
