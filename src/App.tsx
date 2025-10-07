@@ -2,6 +2,7 @@ import { HashRouter, Routes, Route, useNavigate, useSearchParams, useParams } fr
 import { Layout } from './components/Layout';
 import { BlogList } from './components/BlogList';
 import { BlogDetail } from './components/BlogDetail';
+import { Portfolio } from './components/Portfolio';
 
 // 홈 페이지 (목록)
 function HomePage() {
@@ -69,12 +70,22 @@ function PostDetailPage() {
   );
 }
 
+// 포트폴리오 페이지
+function PortfolioPage() {
+  return (
+    <Layout>
+      <Portfolio />
+    </Layout>
+  );
+}
+
 export default function App() {
   return (
     <HashRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/post/:slug" element={<PostDetailPage />} />
+        <Route path="/portfolio" element={<PortfolioPage />} />
       </Routes>
     </HashRouter>
   );
