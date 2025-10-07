@@ -113,7 +113,7 @@ export function Portfolio() {
   ];
 
   return (
-    <div className="space-y-12 pb-12">
+    <div className="space-y-16 pb-16">
       {/* Hero Section */}
       <section className="relative">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg -z-10"></div>
@@ -163,7 +163,7 @@ export function Portfolio() {
 
       {/* Skills Section */}
       <section>
-        <div className="flex items-center gap-2 mb-6">
+        <div className="flex items-center gap-2 mb-8">
           <Code2 className="w-6 h-6 text-primary" />
           <h2>Skills</h2>
         </div>
@@ -191,7 +191,7 @@ export function Portfolio() {
 
       {/* Experience Section */}
       <section>
-        <div className="flex items-center gap-2 mb-6">
+        <div className="flex items-center gap-2 mb-8">
           <Briefcase className="w-6 h-6 text-primary" />
           <h2>Experience</h2>
         </div>
@@ -230,7 +230,7 @@ export function Portfolio() {
 
       {/* Projects Section */}
       <section>
-        <div className="flex items-center gap-2 mb-6">
+        <div className="flex items-center gap-2 mb-8">
           <Code2 className="w-6 h-6 text-primary" />
           <h2>Projects</h2>
         </div>
@@ -285,7 +285,7 @@ export function Portfolio() {
       <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Education */}
         <div>
-          <div className="flex items-center gap-2 mb-6">
+          <div className="flex items-center gap-2 mb-8">
             <GraduationCap className="w-6 h-6 text-primary" />
             <h2>Education</h2>
           </div>
@@ -310,7 +310,7 @@ export function Portfolio() {
 
         {/* Certifications */}
         <div>
-          <div className="flex items-center gap-2 mb-6">
+          <div className="flex items-center gap-2 mb-8">
             <Award className="w-6 h-6 text-primary" />
             <h2>Certifications</h2>
           </div>
