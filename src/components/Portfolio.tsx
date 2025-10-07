@@ -12,9 +12,9 @@ export function Portfolio() {
     title: 'Full Stack Developer',
     bio: '보다 넓은 시야를 가지고 싶은 개발자입니다. 문제 해결을 즐기고, 새로운 기술을 배우는 것을 좋아합니다.',
     location: 'Seoul, South Korea',
-    email: 'your.email@example.com',
+    email: 'leegeondev@gmail.com',
     github: 'https://github.com/KrongDev',
-    linkedin: 'https://linkedin.com/in/yourprofile',
+    linkedin: 'https://www.linkedin.com/in/건-이-b459292a0',
     avatar: 'https://github.com/KrongDev.png',
   };
 
