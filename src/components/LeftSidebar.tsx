@@ -1,6 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 import { ChevronRight, ChevronDown, Folder, ExternalLink } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { getCategories } from '../data/posts';
 import type { Category } from '../types/post';
 
@@ -19,6 +20,8 @@ interface LeftSidebarProps {
 }
 
 export function LeftSidebar({ onCategoryClick, selectedCategory }: LeftSidebarProps) {
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [categories, setCategories] = useState<Category[]>([]);
   const [expandedCategories, setExpandedCategories] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
@@ -60,6 +63,16 @@ export function LeftSidebar({ onCategoryClick, selectedCategory }: LeftSidebarPr
   };
 
   const handleCategoryClick = (categoryId: string) => {
+    // 홈으로 이동하면서 category 파라미터 설정
+    if (selectedCategory === categoryId) {
+      // 같은 카테고리 클릭 시 필터 해제
+      navigate('/');
+    } else {
+      // 카테고리 필터링
+      navigate(`/?category=${categoryId}`);
+    }
+    
+    // 기존 핸들러도 호출 (HomePage의 상태 업데이트용)
     onCategoryClick?.(selectedCategory === categoryId ? null : categoryId);
   };
 
