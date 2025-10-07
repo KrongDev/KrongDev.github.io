@@ -10,7 +10,7 @@ export function Portfolio() {
   const profile = {
     name: 'Geon Lee',
     title: 'Full Stack Developer',
-    bio: '보다 넓은 시야를 가지고 싶은 개발자입니다. 문제 해결을 즐기고, 새로운 기술을 배우는 것을 좋아합니다.',
+    bio: '해결하고자 하는 문제의 가설을 정의하고, 검증하는 것을 좋아합니다.',
     location: 'Seoul, South Korea',
     email: 'leegeondev@gmail.com',
     github: 'https://github.com/KrongDev',
