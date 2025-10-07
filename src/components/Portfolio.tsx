@@ -113,7 +113,7 @@ export function Portfolio() {
   ];
 
   return (
-    <div className="space-y-16 pb-16">
+    <div className="space-y-16 pt-8 pb-16">
       {/* Hero Section */}
       <section className="relative">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg -z-10"></div>
