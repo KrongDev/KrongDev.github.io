@@ -73,7 +73,7 @@ function PostDetailPage() {
 // 포트폴리오 페이지
 function PortfolioPage() {
   return (
-    <Layout>
+    <Layout showSidebar={false}>
       <Portfolio />
     </Layout>
   );
