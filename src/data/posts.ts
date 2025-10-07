@@ -80,6 +80,9 @@ export async function getCategories(): Promise<Category[]> {
     return [];
   }
 
+  // 카테고리 순서 정의
+  const categoryOrder = ['CS', 'Language', 'Framework', 'Database', 'Platform', 'Life'];
+
   // 카테고리별 그룹화
   const categoryMap = new Map<string, Set<string>>();
 
@@ -110,6 +113,19 @@ export async function getCategories(): Promise<Category[]> {
       count: categoryPosts.length,
       subcategories: subcategories.length > 0 ? subcategories : undefined,
     });
+  });
+
+  // 정의된 순서대로 정렬
+  categories.sort((a, b) => {
+    const indexA = categoryOrder.indexOf(a.id);
+    const indexB = categoryOrder.indexOf(b.id);
+    
+    // 순서에 없는 카테고리는 맨 뒤로
+    if (indexA === -1 && indexB === -1) return 0;
+    if (indexA === -1) return 1;
+    if (indexB === -1) return -1;
+    
+    return indexA - indexB;
   });
 
   return categories;
