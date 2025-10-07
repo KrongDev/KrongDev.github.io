@@ -99,17 +99,18 @@ export function Portfolio() {
 
   const education = [
     {
-      school: 'University Name',
-      degree: 'Bachelor of Science in Computer Science',
-      period: '2017.03 - 2021.02',
-      description: '컴퓨터 공학 전공, GPA 3.8/4.0',
+      school: '대구공업대학교',
+      degree: '항공정비 전문학사',
+      period: '2016.03 - 2018.02',
+      description: '항공정비 전공, GPA 3.65/4.5',
     },
   ];
 
   const certifications = [
-    { name: 'AWS Certified Solutions Architect', year: '2023' },
-    { name: 'Google Cloud Professional Developer', year: '2022' },
-    { name: '정보처리기사', year: '2021' },
+    { name: '항해플러스 백엔드 5기', from: '항해99', year: '2024', month: '8' },
+    { name: 'Java(Basic) Certification', from: 'HackerRank', year: '2024', month: '5'},
+    { name: 'SQL(Intermediate) Certification', from: 'HackerRank', year: '2024', month: '5'},
+    { name: 'SQL(Basic) Certification', from: 'HackerRank', year: '2024', month: '5'},
   ];
 
   return (
@@ -309,7 +310,7 @@ export function Portfolio() {
         </div>
 
         {/* Certifications */}
-        <div>
+        <div style={{ marginTop: "50px" }}>
           <div className="flex items-center gap-2 mb-8">
             <Award className="w-6 h-6 text-primary" />
             <h2>Certifications</h2>
@@ -319,41 +320,15 @@ export function Portfolio() {
               <ul className="space-y-3">
                 {certifications.map((cert, index) => (
                   <li key={index} className="flex items-center justify-between py-2 border-b border-border last:border-0">
-                    <span>{cert.name}</span>
-                    <Badge variant="secondary">{cert.year}</Badge>
+                    <span>{cert.name} - {cert.from}</span>
+                    <Badge variant="secondary">{cert.year}/{cert.month}</Badge>
                   </li>
                 ))}
               </ul>
             </CardContent>
           </Card>
         </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="text-center">
-        <Card className="bg-gradient-to-r from-primary/10 to-primary/5">
-          <CardContent className="pt-6 pb-6">
-            <h3 className="mb-4">Let's Work Together</h3>
-            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              새로운 프로젝트나 협업 기회가 있으시다면 언제든지 연락주세요!
-            </p>
-            <div className="flex gap-4 justify-center">
-              <Button asChild>
-                <a href={`mailto:${profile.email}`}>
-                  <Mail className="w-4 h-4 mr-2" />
-                  Contact Me
-                </a>
-              </Button>
-              <Button variant="outline" asChild>
-                <a href={profile.github} target="_blank" rel="noopener noreferrer">
-                  <Github className="w-4 h-4 mr-2" />
-                  View GitHub
-                </a>
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-      </section>
+      </section
     </div>
   );
 }
