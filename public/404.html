@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <script>
+    // GitHub Pages SPA 리다이렉션
+    // 모든 404 에러를 index.html로 리다이렉트하여 React Router가 처리하도록 함
+    const path = window.location.pathname.slice(1);
+    if (path) {
+      window.location.replace(
+        window.location.origin + '/#' + path + window.location.search + window.location.hash
+      );
+    }
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>

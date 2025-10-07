@@ -99,7 +99,7 @@ export function BlogList({ searchQuery, selectedCategory, onPostClick }: BlogLis
           <Card
             key={post.id}
             className="cursor-pointer hover:border-primary transition-colors"
-            onClick={() => onPostClick(post.id)}
+            onClick={() => onPostClick(post.slug)}
           >
             <CardHeader>
               <div className="flex items-start justify-between gap-4">

@@ -1,10 +1,20 @@
 
   <!DOCTYPE html>
-  <html lang="en">
+  <html lang="ko">
     <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>GitHub Blog Creation</title>
+      <title>Geon Lee - Tech Blog</title>
+      <!-- GitHub Pages SPA 지원: 404에서 리다이렉트된 경로 처리 -->
+      <script>
+        (function() {
+          const hash = window.location.hash;
+          if (hash && hash.startsWith('#/')) {
+            const path = hash.slice(1);
+            window.history.replaceState(null, '', path);
+          }
+        })();
+      </script>
     </head>
 
     <body>
