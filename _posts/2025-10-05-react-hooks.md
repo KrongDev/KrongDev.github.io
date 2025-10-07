@@ -5,7 +5,7 @@ category: "react"
 subcategory: "frontend"
 tags: ["React", "Hooks", "JavaScript", "Frontend"]
 excerpt: "React Hooks의 기본부터 고급 활용법까지 모든 것을 알아봅니다. useState, useEffect, 커스텀 훅 등을 상세히 다룹니다."
-author: "John Doe"
+author: "Geon Lee"
 ---
 
 # React Hooks 완벽 가이드

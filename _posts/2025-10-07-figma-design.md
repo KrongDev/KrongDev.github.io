@@ -5,7 +5,7 @@ category: "design"
 subcategory: "figma"
 tags: ["Figma", "UI/UX", "디자인", "툴"]
 excerpt: "Figma를 처음 시작하는 개발자를 위한 가이드입니다. 기본 기능부터 협업 방법까지 알아봅니다."
-author: "John Doe"
+author: "Geon Lee"
 ---
 
 # Figma로 시작하는 UI 디자인 🎨

@@ -5,7 +5,7 @@ category: "typescript"
 subcategory: "frontend"
 tags: ["TypeScript", "JavaScript", "개발팁"]
 excerpt: "실무에서 바로 사용할 수 있는 TypeScript 팁들을 모았습니다. 타입 가드, 유틸리티 타입, 제네릭 활용법 등을 다룹니다."
-author: "John Doe"
+author: "Geon Lee"
 ---
 
 # TypeScript 실전 팁 모음 💎

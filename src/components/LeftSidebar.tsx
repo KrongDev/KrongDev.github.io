@@ -1,8 +1,17 @@
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
-import { ChevronRight, ChevronDown, Folder } from 'lucide-react';
+import { ChevronRight, ChevronDown, Folder, ExternalLink } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { getCategories } from '../data/posts';
 import type { Category } from '../types/post';
+
+interface GitHubProfile {
+  name: string;
+  bio: string;
+  avatar_url: string;
+  login: string;
+  html_url: string;
+  followers: number;
+}
 
 interface LeftSidebarProps {
   onCategoryClick?: (categoryId: string | null) => void;
@@ -13,11 +22,20 @@ export function LeftSidebar({ onCategoryClick, selectedCategory }: LeftSidebarPr
   const [categories, setCategories] = useState<Category[]>([]);
   const [expandedCategories, setExpandedCategories] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
+  const [profile, setProfile] = useState<GitHubProfile | null>(null);
 
   useEffect(() => {
-    async function fetchCategories() {
+    async function fetchData() {
       setLoading(true);
       try {
+        // GitHub 프로필 가져오기
+        const profileResponse = await fetch('https://api.github.com/users/KrongDev');
+        if (profileResponse.ok) {
+          const profileData = await profileResponse.json();
+          setProfile(profileData);
+        }
+
+        // 카테고리 가져오기
         const cats = await getCategories();
         setCategories(cats);
         
@@ -26,13 +44,13 @@ export function LeftSidebar({ onCategoryClick, selectedCategory }: LeftSidebarPr
           setExpandedCategories([cats[0].id]);
         }
       } catch (error) {
-        console.error('Failed to load categories:', error);
+        console.error('Failed to load data:', error);
       } finally {
         setLoading(false);
       }
     }
 
-    fetchCategories();
+    fetchData();
   }, []);
 
   const toggleCategory = (id: string) => {
@@ -50,13 +68,36 @@ export function LeftSidebar({ onCategoryClick, selectedCategory }: LeftSidebarPr
       <div className="bg-card border border-border rounded-lg overflow-hidden">
         {/* Profile Section */}
         <div className="flex flex-col items-center text-center p-6 pb-6 border-b border-border">
-          <Avatar className="w-24 h-24 mb-4">
-            <AvatarImage src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop" />
-            <AvatarFallback>JD</AvatarFallback>
-          </Avatar>
-          <h3>John Doe</h3>
+          <a 
+            href={profile?.html_url || 'https://github.com/KrongDev'}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group"
+          >
+            <Avatar className="w-24 h-24 mb-4 ring-2 ring-transparent group-hover:ring-primary transition-all">
+              <AvatarImage 
+                src={profile?.avatar_url || 'https://github.com/KrongDev.png'} 
+                alt={profile?.name || 'Geon Lee'}
+              />
+              <AvatarFallback>GL</AvatarFallback>
+            </Avatar>
+          </a>
+          <a 
+            href={profile?.html_url || 'https://github.com/KrongDev'}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center gap-1 hover:text-primary transition-colors"
+          >
+            <h3>{profile?.name || 'Geon Lee'}</h3>
+            <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+          </a>
+          {profile?.followers !== undefined && (
+            <p className="text-muted-foreground text-xs mt-1">
+              {profile.followers} followers
+            </p>
+          )}
           <p className="text-muted-foreground mt-2 text-sm">
-            Frontend Developer & UI Designer
+            {profile?.bio || '보다 넓은 시야를 가지고 싶은 개발자입니다.'}
           </p>
         </div>
 
