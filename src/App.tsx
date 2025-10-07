@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useNavigate, useSearchParams, useParams } from 'react-router-dom';
+import { HashRouter, Routes, Route, useNavigate, useSearchParams, useParams } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import { BlogList } from './components/BlogList';
 import { BlogDetail } from './components/BlogDetail';
@@ -71,11 +71,11 @@ function PostDetailPage() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/post/:slug" element={<PostDetailPage />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
