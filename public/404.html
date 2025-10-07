@@ -5,13 +5,16 @@
   <title>Redirecting...</title>
   <script>
     // GitHub Pages SPA 리다이렉션
-    // 모든 404 에러를 index.html로 리다이렉트하여 React Router가 처리하도록 함
-    const path = window.location.pathname.slice(1);
-    if (path) {
-      window.location.replace(
-        window.location.origin + '/#' + path + window.location.search + window.location.hash
-      );
-    }
+    // 404 에러 시 경로를 sessionStorage에 저장하고 루트로 리다이렉트
+    (function() {
+      const path = window.location.pathname + window.location.search + window.location.hash;
+      
+      // 경로를 sessionStorage에 저장
+      sessionStorage.setItem('redirectPath', path);
+      
+      // 루트로 리다이렉트
+      window.location.replace(window.location.origin);
+    })();
   </script>
 </head>
 <body>

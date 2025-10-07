@@ -8,10 +8,13 @@
       <!-- GitHub Pages SPA 지원: 404에서 리다이렉트된 경로 처리 -->
       <script>
         (function() {
-          const hash = window.location.hash;
-          if (hash && hash.startsWith('#/')) {
-            const path = hash.slice(1);
-            window.history.replaceState(null, '', path);
+          // sessionStorage에서 리다이렉트 경로 확인
+          const redirectPath = sessionStorage.getItem('redirectPath');
+          
+          if (redirectPath && redirectPath !== '/') {
+            // 경로 복원
+            sessionStorage.removeItem('redirectPath');
+            window.history.replaceState(null, '', redirectPath);
           }
         })();
       </script>

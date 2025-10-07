@@ -199,7 +199,7 @@
     "slug": "2025-10-01-welcome",
     "title": "블로그에 오신 것을 환영합니다!",
     "date": "2025-10-01",
-    "category": "Life",
+    "category": "life",
     "subcategory": null,
     "tags": [
       "블로그",
@@ -208,7 +208,7 @@
     ],
     "excerpt": "새로운 블로그를 시작합니다. 개발, 디자인, 그리고 일상에 대한 이야기를 공유할 예정입니다.",
     "author": "Geon Lee",
-    "content": "<h1>블로그에 오신 것을 환영합니다! 👋</h1>\n<p>안녕하세요! 이 블로그의 첫 번째 포스트입니다.</p>\n<h2>블로그 소개</h2>\n<p>이 블로그에서는 다음과 같은 내용을 다룰 예정입니다:</p>\n<ul>\n<li>🚀 <strong>개발</strong>: React, TypeScript, Node.js 등 프론트엔드 개발 관련 글</li>\n<li>🎨 <strong>디자인</strong>: UI/UX 디자인과 Figma 활용 팁</li>\n<li>💡 <strong>일상</strong>: 개발자의 삶과 생각들</li>\n</ul>\n<h2>기술 스택</h2>\n<p>이 블로그는 다음 기술로 만들어졌습니다:</p>\n<ul>\n<li>React + TypeScript</li>\n<li>Vite</li>\n<li>Tailwind CSS</li>\n<li>shadcn/ui</li>\n<li>GitHub Pages</li>\n</ul>\n<h2>앞으로의 계획</h2>\n<p>앞으로 다양한 주제의 글을 꾸준히 올릴 예정입니다.<br>방문해주셔서 감사합니다! 🙏</p>\n",
-    "rawContent": "\n# 블로그에 오신 것을 환영합니다! 👋\n\n안녕하세요! 이 블로그의 첫 번째 포스트입니다.\n\n## 블로그 소개\n\n이 블로그에서는 다음과 같은 내용을 다룰 예정입니다:\n\n- 🚀 **개발**: React, TypeScript, Node.js 등 프론트엔드 개발 관련 글\n- 🎨 **디자인**: UI/UX 디자인과 Figma 활용 팁\n- 💡 **일상**: 개발자의 삶과 생각들\n\n## 기술 스택\n\n이 블로그는 다음 기술로 만들어졌습니다:\n\n- React + TypeScript\n- Vite\n- Tailwind CSS\n- shadcn/ui\n- GitHub Pages\n\n## 앞으로의 계획\n\n앞으로 다양한 주제의 글을 꾸준히 올릴 예정입니다. \n방문해주셔서 감사합니다! 🙏\n\n"
+    "content": "<h1>블로그에 오신 것을 환영합니다! 👋</h1>\n<p>안녕하세요! 이 블로그의 첫 번째 포스트입니다.</p>\n<h2>블로그 소개</h2>\n<p>이 블로그에서는 다음과 같은 내용을 다룰 예정입니다:</p>\n<ul>\n<li>🚀 <strong>개발</strong>: 개발 언어와 프레임워크, CS등 개발에 대해 이해하고, 연구하는 개발 관련 글</li>\n<li>💡 <strong>일상</strong>: 개발자의 삶과 생각들</li>\n</ul>\n<h2>기술 스택</h2>\n<p>이 블로그는 다음 기술로 만들어졌습니다:</p>\n<ul>\n<li>React + TypeScript</li>\n<li>Vite</li>\n<li>Tailwind CSS</li>\n<li>shadcn/ui</li>\n<li>GitHub Pages</li>\n</ul>\n<h2>앞으로의 계획</h2>\n<p>앞으로 다양한 주제의 글을 꾸준히 올릴 예정입니다.<br>방문해주셔서 감사합니다! 🙏</p>\n",
+    "rawContent": "\n# 블로그에 오신 것을 환영합니다! 👋\n\n안녕하세요! 이 블로그의 첫 번째 포스트입니다.\n\n## 블로그 소개\n\n이 블로그에서는 다음과 같은 내용을 다룰 예정입니다:\n\n- 🚀 **개발**: 개발 언어와 프레임워크, CS등 개발에 대해 이해하고, 연구하는 개발 관련 글\n- 💡 **일상**: 개발자의 삶과 생각들\n\n## 기술 스택\n\n이 블로그는 다음 기술로 만들어졌습니다:\n\n- React + TypeScript\n- Vite\n- Tailwind CSS\n- shadcn/ui\n- GitHub Pages\n\n## 앞으로의 계획\n\n앞으로 다양한 주제의 글을 꾸준히 올릴 예정입니다. \n방문해주셔서 감사합니다! 🙏\n\n"
   }
 ]
