@@ -1,36 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import { Layout } from './components/Layout';
+import { BlogList } from './components/BlogList';
+import { BlogDetail } from './components/BlogDetail';
 
-function App() {
-  const [count, setCount] = useState(0)
+type Page = 'list' | 'detail';
+
+export default function App() {
+  const [currentPage, setCurrentPage] = useState<Page>('list');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedPostId, setSelectedPostId] = useState<string | null>(null);
+
+  const handlePostClick = (postId: string) => {
+    setSelectedPostId(postId);
+    setCurrentPage('detail');
+  };
+
+  const handleBackToList = () => {
+    setSelectedPostId(null);
+    setCurrentPage('list');
+  };
+
+  const renderPage = () => {
+    switch (currentPage) {
+      case 'list':
+        return (
+          <BlogList
+            searchQuery={searchQuery}
+            selectedCategory={selectedCategory}
+            onPostClick={handlePostClick}
+          />
+        );
+      case 'detail':
+        return (
+          <BlogDetail
+            postId={selectedPostId || undefined}
+            onBack={handleBackToList}
+          />
+        );
+      default:
+        return null;
+    }
+  };
 
   return (
-    <>
-        아리랑 잘 배포 되는 지 테스트를 해봐야할거같아요~~~~~
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Layout 
+      onSearch={setSearchQuery}
+      onCategoryClick={setSelectedCategory}
+      selectedCategory={selectedCategory}
+    >
+      {renderPage()}
+    </Layout>
+  );
 }
-
-export default App

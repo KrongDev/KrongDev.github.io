@@ -1,5 +1,5 @@
-# GitHub Pages에 정적 콘텐츠를 배포하기 위한 간단한 워크플로우
-name: Deploy static content to Pages
+# GitHub Pages에 블로그를 배포하기 위한 워크플로우
+name: Deploy Blog to Pages
 
 on:
   # 기본 브랜치에 대한 푸시 이벤트 발생 시 실행
@@ -21,7 +21,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # 단순히 배포만 수행하기에 하나의 잡으로만 구성
+  # 빌드 및 배포
   deploy:
     environment:
       name: github-pages
@@ -30,22 +30,31 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: 'npm'
+          
       - name: Install dependencies
         run: npm install
-      - name: Build
+        
+      - name: Build posts (마크다운 → JSON)
+        run: npm run build:posts
+        
+      - name: Build app
         run: npm run build
+        
       - name: Setup Pages
         uses: actions/configure-pages@v3
+        
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
           # dist 디렉터리 업로드
           path: './dist'
+          
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
