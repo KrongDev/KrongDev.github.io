@@ -114,34 +114,45 @@ export function LeftSidebar({ onCategoryClick, selectedCategory }: LeftSidebarPr
             <nav className="space-y-1">
               {categories.map((category) => (
                 <div key={category.id}>
-                  <button
-                    onClick={() => {
-                      if (category.subcategories) {
-                        toggleCategory(category.id);
-                      }
-                      handleCategoryClick(category.id);
-                    }}
-                    className={`w-full flex items-center justify-between px-3 py-2 rounded-md hover:bg-accent transition-colors text-sm ${
+                  <div
+                    className={`flex items-center justify-between rounded-md ${
                       selectedCategory === category.id ? 'bg-accent' : ''
                     }`}
                   >
-                    <div className="flex items-center gap-2">
+                    {/* 텍스트 영역: 카테고리 필터링 */}
+                    <button
+                      onClick={() => handleCategoryClick(category.id)}
+                      className="flex-1 flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent transition-colors rounded-l-md"
+                    >
                       <Folder className="w-4 h-4" />
                       <span>{category.name}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
+                    </button>
+                    
+                    {/* 오른쪽 영역: 카운트와 토글 버튼 */}
+                    <div className="flex items-center gap-2 px-3 py-2">
                       <span className="text-muted-foreground text-xs">
                         {category.count}
                       </span>
                       {category.subcategories && category.subcategories.length > 0 && (
-                        expandedCategories.includes(category.id) ? (
-                          <ChevronDown className="w-4 h-4" />
-                        ) : (
-                          <ChevronRight className="w-4 h-4" />
-                        )
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            toggleCategory(category.id);
+                          }}
+                          className="p-0.5 hover:bg-muted rounded transition-colors"
+                          aria-label={expandedCategories.includes(category.id) ? "하위 카테고리 닫기" : "하위 카테고리 열기"}
+                        >
+                          {expandedCategories.includes(category.id) ? (
+                            <ChevronDown className="w-4 h-4" />
+                          ) : (
+                            <ChevronRight className="w-4 h-4" />
+                          )}
+                        </button>
                       )}
                     </div>
-                  </button>
+                  </div>
+                  
+                  {/* 하위 카테고리 */}
                   {category.subcategories && 
                    category.subcategories.length > 0 && 
                    expandedCategories.includes(category.id) && (
