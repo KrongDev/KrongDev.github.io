@@ -37,7 +37,11 @@ jobs:
           node-version: '20'
           
       - name: Install dependencies
-        run: npm install --legacy-peer-deps --force
+        run: |
+          npm cache clean --force
+          npm install --legacy-peer-deps
+          npm install --force
+          npm rebuild rollup
         
       - name: Build posts (마크다운 → JSON)
         run: npm run build:posts
