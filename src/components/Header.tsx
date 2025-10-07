@@ -31,7 +31,7 @@ export function Header({ onSearch }: HeaderProps) {
   return (
     <header className="border-b border-border bg-card sticky top-0 z-50 h-[73px]">
       <div className="max-w-[1400px] mx-auto px-6 h-full flex items-center justify-between gap-4">
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-16">
           <h1 className="cursor-pointer hover:text-primary transition-colors" onClick={handleLogoClick}>
             Geon Lee
           </h1>
