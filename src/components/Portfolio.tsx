@@ -20,12 +20,16 @@ export function Portfolio() {
 
   const skills = [
     {
+      category: 'Language',
+      items: ['Java', 'C', 'C#', 'Typescript', 'Javascript', 'Python'],
+    },
+    {
       category: 'Frontend',
-      items: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Vite'],
+      items: ['React', 'Next.js', 'Vite', 'Tailwind CSS'],
     },
     {
       category: 'Backend',
-      items: ['Node.js', 'Express', 'Spring Boot', 'Python', 'FastAPI'],
+      items: ['Spring', 'Spring Boot', 'Spring JPA', 'Node.js', 'FastAPI'],
     },
     {
       category: 'Database',
@@ -33,11 +37,15 @@ export function Portfolio() {
     },
     {
       category: 'DevOps',
-      items: ['Docker', 'AWS', 'GitHub Actions', 'Nginx'],
+      items: ['Kubernetes', 'Docker', 'AWS', 'GitHub Actions', 'Nginx'],
     },
     {
       category: 'Tools',
-      items: ['Git', 'VS Code', 'Postman', 'Figma'],
+      items: ['Git', 'VS Code', 'Intellij', 'Postman', 'DataDog', 'Figma'],
+    },
+    {
+      category: 'AI',
+      items: ['GPT', 'Gemini', 'Cursor', 'Claude'],
     },
   ];
 
@@ -328,7 +336,7 @@ export function Portfolio() {
             </CardContent>
           </Card>
         </div>
-      </section
+      </section>
     </div>
   );
 }
