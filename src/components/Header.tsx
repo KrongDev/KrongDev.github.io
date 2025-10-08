@@ -35,7 +35,7 @@ export function Header({ onSearch }: HeaderProps) {
           <h1 className="cursor-pointer hover:text-primary transition-colors" onClick={handleLogoClick}>
             Geon Lee
           </h1>
-          <nav className="hidden md:flex items-center gap-2">
+          <nav className="hidden md:flex items-center gap-2" style={{ marginLeft: "10px" }}>
             <Button
               variant={isActive('/') || isActive('') ? 'default' : 'ghost'}
               size="sm"
