@@ -51,25 +51,19 @@ export function Portfolio() {
 
   const experiences = [
     {
-      company: 'Tech Company',
-      position: 'Senior Full Stack Developer',
-      period: '2023.01 - Present',
-      description: '웹 애플리케이션 개발 및 아키텍처 설계를 담당하고 있습니다.',
+      company: '투비더원',
+      position: 'Full Stack Developer',
+      period: '2025.04 - 2025.08',
+      description: '웹 애플리케이션 개발 및 아키텍처 설계를 담당하고, 팀리딩을 담당하였습니다.',
       achievements: [
-        '마이크로서비스 아키텍처 도입으로 시스템 안정성 30% 향상',
-        'CI/CD 파이프라인 구축으로 배포 시간 50% 단축',
-        '성능 최적화를 통해 페이지 로딩 속도 40% 개선',
       ],
     },
     {
-      company: 'Startup Inc.',
+      company: 'Nextree',
       position: 'Full Stack Developer',
-      period: '2021.03 - 2022.12',
-      description: '스타트업에서 다양한 프로젝트를 경험하며 성장했습니다.',
+      period: '2021.09 - 2024.10',
+      description: '풀스택 개발자로써 다양한 도메인을 가진 프로젝트를 경험하였습니다.',
       achievements: [
-        'React 기반 관리자 페이지 개발',
-        'RESTful API 설계 및 구현',
-        '데이터베이스 최적화 및 쿼리 튜닝',
       ],
     },
   ];
@@ -81,28 +75,7 @@ export function Portfolio() {
       tags: ['React', 'TypeScript', 'Vite', 'GitHub Pages'],
       link: 'https://krongdev.github.io',
       github: 'https://github.com/KrongDev/KrongDev.github.io',
-    },
-    {
-      title: 'E-Commerce Platform',
-      description: '풀스택 전자상거래 플랫폼. 결제 시스템, 재고 관리, 주문 추적 기능을 포함합니다.',
-      tags: ['Next.js', 'Node.js', 'PostgreSQL', 'Redis', 'Stripe'],
-      link: 'https://example.com',
-      github: 'https://github.com/yourusername/project',
-    },
-    {
-      title: 'Real-time Chat Application',
-      description: 'WebSocket을 활용한 실시간 채팅 애플리케이션. 그룹 채팅, 파일 공유, 읽음 표시 기능을 지원합니다.',
-      tags: ['React', 'Socket.io', 'Express', 'MongoDB'],
-      link: 'https://example.com',
-      github: 'https://github.com/yourusername/project',
-    },
-    {
-      title: 'Task Management System',
-      description: '팀 협업을 위한 태스크 관리 시스템. 칸반 보드, 타임라인 뷰, 알림 기능을 제공합니다.',
-      tags: ['Vue.js', 'Spring Boot', 'MySQL', 'Docker'],
-      link: 'https://example.com',
-      github: 'https://github.com/yourusername/project',
-    },
+    }
   ];
 
   const education = [
@@ -224,7 +197,7 @@ export function Portfolio() {
                 <ul className="space-y-2">
                   {exp.achievements.map((achievement, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
+                      <span className="text-primary">•</span>
                       <span className="text-sm">{achievement}</span>
                     </li>
                   ))}
