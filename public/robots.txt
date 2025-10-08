@@ -1,0 +1,12 @@
+# robots.txt for KrongDev Blog
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://krongdev.github.io/sitemap.xml
+
+# Crawl-delay (optional, helps reduce server load)
+Crawl-delay: 1
+

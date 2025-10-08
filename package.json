@@ -60,8 +60,9 @@
     },
     "scripts": {
         "dev": "npm run build:posts && vite",
-        "build": "npm run build:posts && vite build",
+        "build": "npm run build:posts && npm run build:sitemap && vite build",
         "build:posts": "node scripts/build-posts.js",
+        "build:sitemap": "node scripts/build-sitemap.js",
         "preview": "vite preview"
     }
 }
