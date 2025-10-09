@@ -10,13 +10,15 @@ const SITE_URL = 'https://krongdev.github.io';
 function generateSitemap() {
   console.log('🗺️  Building sitemap...');
 
-  // 포스트 데이터 읽기
-  const postsPath = path.join(__dirname, '../public/data/posts.json');
+  // 포스트 메타데이터 읽기
+  const postsPath = path.join(__dirname, '../public/data/posts-meta.json');
   let posts = [];
   
   if (fs.existsSync(postsPath)) {
     const postsData = fs.readFileSync(postsPath, 'utf-8');
     posts = JSON.parse(postsData);
+  } else {
+    console.warn('⚠️  posts-meta.json not found. Run "npm run build:posts" first.');
   }
 
   // 현재 날짜 (ISO 8601 format)
