@@ -11,6 +11,10 @@ coverage/
 dist/
 build/
 
+# Generated files
+public/data/posts-meta.json
+public/data/categories.json
+
 # Misc
 .DS_Store
 .env.local

@@ -2,9 +2,53 @@
   import { defineConfig } from 'vite';
   import react from '@vitejs/plugin-react-swc';
   import path from 'path';
+  import fs from 'fs';
 
   export default defineConfig({
-    plugins: [react()],
+    plugins: [
+      react(),
+      // _posts 폴더를 서빙하는 플러그인
+      {
+        name: 'serve-posts',
+        configureServer(server) {
+          // 개발 서버에서 /_posts/ 경로 처리
+          server.middlewares.use((req, res, next) => {
+            if (req.url?.startsWith('/_posts/')) {
+              const filename = req.url.replace('/_posts/', '');
+              const filePath = path.resolve(__dirname, '_posts', filename);
+              
+              if (fs.existsSync(filePath)) {
+                res.setHeader('Content-Type', 'text/markdown; charset=utf-8');
+                res.end(fs.readFileSync(filePath, 'utf-8'));
+                return;
+              }
+            }
+            next();
+          });
+        },
+        closeBundle() {
+          // 빌드 시 dist/_posts로 복사
+          const postsDir = path.resolve(__dirname, '_posts');
+          const outDir = path.resolve(__dirname, 'dist/_posts');
+          
+          if (!fs.existsSync(outDir)) {
+            fs.mkdirSync(outDir, { recursive: true });
+          }
+          
+          const files = fs.readdirSync(postsDir);
+          files.forEach(file => {
+            if (file.endsWith('.md')) {
+              fs.copyFileSync(
+                path.join(postsDir, file),
+                path.join(outDir, file)
+              );
+            }
+          });
+          
+          console.log('✅ Copied _posts to dist/_posts');
+        }
+      }
+    ],
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
       alias: {

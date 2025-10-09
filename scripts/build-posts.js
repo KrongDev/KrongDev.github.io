@@ -8,7 +8,6 @@ const __dirname = path.dirname(__filename);
 
 const POSTS_DIR = path.join(__dirname, '../_posts');
 const OUTPUT_DIR = path.join(__dirname, '../public/data');
-const OUTPUT_POSTS_DIR = path.join(__dirname, '../public/_posts');
 const POSTS_META_FILE = path.join(OUTPUT_DIR, 'posts-meta.json');
 const CATEGORIES_FILE = path.join(OUTPUT_DIR, 'categories.json');
 
@@ -31,12 +30,9 @@ function buildPosts() {
     console.log('✅ Created _posts directory');
   }
 
-  // output 폴더들 생성
+  // output 폴더 생성
   if (!fs.existsSync(OUTPUT_DIR)) {
     fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-  }
-  if (!fs.existsSync(OUTPUT_POSTS_DIR)) {
-    fs.mkdirSync(OUTPUT_POSTS_DIR, { recursive: true });
   }
 
   // _posts 폴더의 모든 .md 파일 읽기
@@ -61,10 +57,6 @@ function buildPosts() {
 
     // 파일명에서 slug 추출
     const slug = filename.replace('.md', '');
-
-    // 마크다운 파일을 public/_posts/로 복사
-    const outputFilePath = path.join(OUTPUT_POSTS_DIR, filename);
-    fs.copyFileSync(filePath, outputFilePath);
 
     // excerpt가 없으면 본문에서 추출
     let excerpt = data.excerpt || '';
@@ -104,7 +96,7 @@ function buildPosts() {
 
   console.log(`✅ Built ${postsMeta.length} post(s)`);
   console.log(`📁 Posts metadata: ${POSTS_META_FILE}`);
-  console.log(`📁 Markdown files copied to: ${OUTPUT_POSTS_DIR}`);
+  console.log(`📁 Markdown files: ${POSTS_DIR}`);
 
   // 카테고리 정보 생성
   buildCategories(postsMeta);
