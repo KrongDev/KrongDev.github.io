@@ -43,18 +43,51 @@ jobs:
           npm install --force
           npm rebuild rollup
         
-      - name: Build posts (마크다운 → JSON)
-        run: npm run build:posts
+      - name: Generate metadata from _posts (Incremental)
+        run: |
+          echo "🚀 Running incremental build (only changed files)..."
+          npm run build:posts:fast
+          echo "✅ Incremental build complete"
+          
+      - name: Verify generated metadata
+        run: |
+          echo "🔍 Verifying generated files..."
+          echo ""
+          echo "📁 posts-meta.json:"
+          ls -lh public/data/posts-meta.json
+          echo ""
+          echo "📁 categories.json:"
+          ls -lh public/data/categories.json
+          echo ""
+          echo "📊 Posts count:"
+          jq 'length' public/data/posts-meta.json
+          echo ""
+          echo "📊 Categories:"
+          jq '.[].name' public/data/categories.json
+          echo ""
+          echo "✅ Metadata verification complete"
         
       - name: Build application
-        run: npm run build
+        run: |
+          echo "🏗️  Building application..."
+          npm run build
+          echo "✅ Build complete"
         
       - name: Verify build output
         run: |
-          echo "Checking dist directory..."
+          echo "🔍 Verifying dist directory..."
+          echo ""
+          echo "📁 Directory structure:"
           ls -la dist/
-          echo "Checking posts.json..."
-          ls -la dist/data/posts.json
+          echo ""
+          echo "📁 Data files:"
+          ls -lh dist/data/
+          echo ""
+          echo "📁 Markdown files:"
+          ls -lh dist/_posts/ | head -5
+          echo "   ... (showing first 5)"
+          echo ""
+          echo "✅ Build output verification complete"
         
       - name: Setup Pages
         uses: actions/configure-pages@v4

@@ -60,8 +60,10 @@
     },
     "scripts": {
         "dev": "npm run build:posts && vite",
-        "build": "npm run build:posts && npm run build:sitemap && vite build",
+        "build": "npm run build:posts:fast && npm run build:sitemap && vite build",
         "build:posts": "node scripts/build-posts.js",
+        "build:posts:fast": "node scripts/build-posts-incremental.js",
+        "build:posts:full": "FORCE_FULL_BUILD=true node scripts/build-posts-incremental.js",
         "build:sitemap": "node scripts/build-sitemap.js",
         "preview": "vite preview"
     }
