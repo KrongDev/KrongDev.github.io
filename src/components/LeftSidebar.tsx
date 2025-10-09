@@ -1,5 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 import { ChevronRight, ChevronDown, Folder, ExternalLink } from 'lucide-react';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
 import { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { getCategories } from '../data/posts';
@@ -124,22 +125,36 @@ export function LeftSidebar({ onCategoryClick, selectedCategory }: LeftSidebarPr
               No categories yet. Add posts to create categories!
             </p>
           ) : (
-            <nav className="space-y-1">
-              {categories.map((category) => (
-                <div key={category.id}>
-                  <div
-                    className={`flex items-center justify-between rounded-md ${
-                      selectedCategory === category.id ? 'bg-accent' : ''
-                    }`}
-                  >
-                    {/* 텍스트 영역: 카테고리 필터링 */}
-                    <button
-                      onClick={() => handleCategoryClick(category.id)}
-                      className="flex-1 flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent transition-colors rounded-l-md"
+            <TooltipProvider>
+              <nav className="space-y-1">
+                {categories.map((category) => (
+                  <div key={category.id}>
+                    <div
+                      className={`flex items-center justify-between rounded-md ${
+                        selectedCategory === category.id ? 'bg-accent' : ''
+                      }`}
                     >
-                      <Folder className="w-4 h-4" />
-                      <span>{category.name}</span>
-                    </button>
+                      {/* 텍스트 영역: 카테고리 필터링 */}
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <button
+                            onClick={() => handleCategoryClick(category.id)}
+                            className="flex-1 flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent transition-colors rounded-l-md"
+                          >
+                            {category.icon ? (
+                              <span className="text-base">{category.icon}</span>
+                            ) : (
+                              <Folder className="w-4 h-4" />
+                            )}
+                            <span>{category.name}</span>
+                          </button>
+                        </TooltipTrigger>
+                        {category.description && (
+                          <TooltipContent side="right">
+                            <p>{category.description}</p>
+                          </TooltipContent>
+                        )}
+                      </Tooltip>
                     
                     {/* 오른쪽 영역: 카운트와 토글 버튼 */}
                     <div className="flex items-center gap-2 px-3 py-2">
@@ -187,8 +202,9 @@ export function LeftSidebar({ onCategoryClick, selectedCategory }: LeftSidebarPr
                     </div>
                   )}
                 </div>
-              ))}
-            </nav>
+                ))}
+              </nav>
+            </TooltipProvider>
           )}
         </div>
       </div>

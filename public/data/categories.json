@@ -1,0 +1,109 @@
+[
+  {
+    "id": "CS",
+    "name": "Computer Science",
+    "icon": "💻",
+    "description": "컴퓨터 과학 기초",
+    "count": 2,
+    "subcategories": [
+      {
+        "id": "Algorithm",
+        "name": "Algorithm",
+        "count": 1
+      },
+      {
+        "id": "Structure",
+        "name": "Structure",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": "Language",
+    "name": "Programming Language",
+    "icon": "📝",
+    "description": "프로그래밍 언어",
+    "count": 4,
+    "subcategories": [
+      {
+        "id": "Java",
+        "name": "Java",
+        "count": 2
+      },
+      {
+        "id": "Python",
+        "name": "Python",
+        "count": 1
+      },
+      {
+        "id": "TypeScript",
+        "name": "TypeScript",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": "Framework",
+    "name": "Framework",
+    "icon": "🚀",
+    "description": "프레임워크 & 라이브러리",
+    "count": 2,
+    "subcategories": [
+      {
+        "id": "Node.js",
+        "name": "Node.js",
+        "count": 1
+      },
+      {
+        "id": "Spring",
+        "name": "Spring",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": "Database",
+    "name": "Database",
+    "icon": "🗄️",
+    "description": "데이터베이스",
+    "count": 3,
+    "subcategories": [
+      {
+        "id": "MongoDB",
+        "name": "MongoDB",
+        "count": 1
+      },
+      {
+        "id": "MySQL",
+        "name": "MySQL",
+        "count": 1
+      },
+      {
+        "id": "Redis",
+        "name": "Redis",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": "Platform",
+    "name": "Platform",
+    "icon": "☁️",
+    "description": "플랫폼 & 인프라",
+    "count": 1,
+    "subcategories": [
+      {
+        "id": "Event Streaming",
+        "name": "Event Streaming",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": "Life",
+    "name": "Life",
+    "icon": "🌱",
+    "description": "개발 일상",
+    "count": 1
+  }
+]

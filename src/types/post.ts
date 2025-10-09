@@ -1,6 +1,7 @@
 export interface Post {
   id: string;
   slug: string;
+  filename: string;     // 마크다운 파일명
   title: string;
   date: string;
   category: string;
@@ -15,6 +16,8 @@ export interface Post {
 export interface Category {
   id: string;
   name: string;
+  icon?: string;        // 아이콘 (이모지)
+  description?: string; // 설명
   count: number;
   subcategories?: Category[];
 }

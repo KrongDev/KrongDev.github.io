@@ -1,9 +1,82 @@
 import type { Post, Category } from '../types/post';
+import matter from 'gray-matter';
+import { marked } from 'marked';
+
+// marked 설정
+marked.setOptions({
+  breaks: true,
+  gfm: true,
+});
+
+interface PostMeta {
+  id: string;
+  slug: string;
+  filename: string;
+  title: string;
+  date: string;
+  category: string;
+  subcategory?: string | null;
+  tags: string[];
+  excerpt: string;
+  author: string;
+}
 
 let cachedPosts: Post[] | null = null;
+let cachedPostsMeta: PostMeta[] | null = null;
 
 /**
- * 모든 글 데이터 로드
+ * 포스트 메타데이터 로드
+ */
+async function loadPostsMeta(): Promise<PostMeta[]> {
+  if (cachedPostsMeta) {
+    return cachedPostsMeta;
+  }
+
+  try {
+    const response = await fetch('/data/posts-meta.json');
+    if (!response.ok) {
+      throw new Error('Failed to load posts metadata');
+    }
+    cachedPostsMeta = await response.json();
+    return cachedPostsMeta as PostMeta[];
+  } catch (error) {
+    console.error('Error loading posts metadata:', error);
+    return [];
+  }
+}
+
+/**
+ * 마크다운 파일 로드 및 파싱
+ */
+async function loadMarkdownPost(filename: string): Promise<{ content: string; rawContent: string }> {
+  try {
+    const response = await fetch(`/_posts/${filename}`);
+    if (!response.ok) {
+      throw new Error(`Failed to load markdown file: ${filename}`);
+    }
+    const markdownText = await response.text();
+    
+    // Front Matter 제거
+    const { content } = matter(markdownText);
+    
+    // 마크다운을 HTML로 변환
+    const htmlContent = await marked(content);
+    
+    return {
+      content: typeof htmlContent === 'string' ? htmlContent : '',
+      rawContent: content,
+    };
+  } catch (error) {
+    console.error(`Error loading markdown file ${filename}:`, error);
+    return {
+      content: '',
+      rawContent: '',
+    };
+  }
+}
+
+/**
+ * 모든 글 데이터 로드 (메타데이터만, 가벼움)
  */
 export async function loadPosts(): Promise<Post[]> {
   if (cachedPosts) {
@@ -11,11 +84,15 @@ export async function loadPosts(): Promise<Post[]> {
   }
 
   try {
-    const response = await fetch('/data/posts.json');
-    if (!response.ok) {
-      throw new Error('Failed to load posts');
-    }
-    cachedPosts = await response.json();
+    const postsMeta = await loadPostsMeta();
+    
+    // 메타데이터를 Post 형식으로 변환 (content는 비어있음)
+    cachedPosts = postsMeta.map(meta => ({
+      ...meta,
+      content: '', // 목록에서는 content 불필요
+      rawContent: '', // 목록에서는 rawContent 불필요
+    }));
+    
     return cachedPosts;
   } catch (error) {
     console.error('Error loading posts:', error);
@@ -24,11 +101,29 @@ export async function loadPosts(): Promise<Post[]> {
 }
 
 /**
- * ID로 글 찾기
+ * ID로 글 찾기 (전체 내용 포함)
  */
 export async function getPostById(id: string): Promise<Post | null> {
-  const posts = await loadPosts();
-  return posts.find(post => post.id === id) || null;
+  try {
+    const postsMeta = await loadPostsMeta();
+    const meta = postsMeta.find(post => post.id === id);
+    
+    if (!meta) {
+      return null;
+    }
+    
+    // 마크다운 파일 로드
+    const { content, rawContent } = await loadMarkdownPost(meta.filename);
+    
+    return {
+      ...meta,
+      content,
+      rawContent,
+    };
+  } catch (error) {
+    console.error(`Error loading post ${id}:`, error);
+    return null;
+  }
 }
 
 /**
@@ -71,64 +166,19 @@ export async function searchPosts(query: string): Promise<Post[]> {
 }
 
 /**
- * 카테고리 목록 생성 (계층 구조)
+ * 카테고리 목록 로드 (categories.json 사용)
  */
 export async function getCategories(): Promise<Category[]> {
-  const posts = await loadPosts();
-
-  if (posts.length === 0) {
+  try {
+    const response = await fetch('/data/categories.json');
+    if (!response.ok) {
+      throw new Error('Failed to load categories');
+    }
+    return await response.json();
+  } catch (error) {
+    console.error('Error loading categories:', error);
     return [];
   }
-
-  // 카테고리 순서 정의
-  const categoryOrder = ['CS', 'Language', 'Framework', 'Database', 'Platform', 'Life'];
-
-  // 카테고리별 그룹화
-  const categoryMap = new Map<string, Set<string>>();
-
-  posts.forEach(post => {
-    if (!categoryMap.has(post.category)) {
-      categoryMap.set(post.category, new Set());
-    }
-    if (post.subcategory) {
-      categoryMap.get(post.category)!.add(post.subcategory);
-    }
-  });
-
-  // Category 배열 생성
-  const categories: Category[] = [];
-
-  categoryMap.forEach((subcats, catId) => {
-    const categoryPosts = posts.filter(p => p.category === catId);
-    
-    const subcategories = Array.from(subcats).map(subId => ({
-      id: subId,
-      name: formatCategoryName(subId),
-      count: posts.filter(p => p.subcategory === subId).length,
-    }));
-
-    categories.push({
-      id: catId,
-      name: formatCategoryName(catId),
-      count: categoryPosts.length,
-      subcategories: subcategories.length > 0 ? subcategories : undefined,
-    });
-  });
-
-  // 정의된 순서대로 정렬
-  categories.sort((a, b) => {
-    const indexA = categoryOrder.indexOf(a.id);
-    const indexB = categoryOrder.indexOf(b.id);
-    
-    // 순서에 없는 카테고리는 맨 뒤로
-    if (indexA === -1 && indexB === -1) return 0;
-    if (indexA === -1) return 1;
-    if (indexB === -1) return -1;
-    
-    return indexA - indexB;
-  });
-
-  return categories;
 }
 
 /**
@@ -149,25 +199,4 @@ export async function getAllTags(): Promise<{ tag: string; count: number }[]> {
     .sort((a, b) => b.count - a.count);
 }
 
-/**
- * 카테고리 ID를 보기 좋은 이름으로 변환
- */
-function formatCategoryName(id: string): string {
-  const nameMap: Record<string, string> = {
-    'react': 'React',
-    'typescript': 'TypeScript',
-    'nodejs': 'Node.js',
-    'javascript': 'JavaScript',
-    'dev': 'Development',
-    'frontend': 'Frontend',
-    'backend': 'Backend',
-    'design': 'Design',
-    'ui': 'UI/UX',
-    'figma': 'Figma',
-    'life': 'Life',
-    'uncategorized': 'Uncategorized',
-  };
-
-  return nameMap[id] || id.charAt(0).toUpperCase() + id.slice(1);
-}
 

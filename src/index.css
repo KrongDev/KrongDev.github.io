@@ -2026,7 +2026,6 @@ html {
 /* Markdown Content Styles */
 .prose {
   color: var(--foreground);
-  max-width: 65ch;
 }
 
 .prose > * + * {
