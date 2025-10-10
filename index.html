@@ -37,6 +37,17 @@
 
         gtag('config', 'G-BLM7Y5T91Q');
       </script>
+      
+      <!-- GitHub Pages SPA 리다이렉션 복원 -->
+      <script>
+        (function() {
+          var redirect = sessionStorage.redirect;
+          delete sessionStorage.redirect;
+          if (redirect && redirect !== location.href) {
+            history.replaceState(null, null, redirect);
+          }
+        })();
+      </script>
     </head>
 
     <body>

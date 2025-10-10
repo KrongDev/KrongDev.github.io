@@ -33,7 +33,7 @@ function generateSitemap() {
       priority: '1.0',
     },
     {
-      loc: `${SITE_URL}/#/portfolio`,
+      loc: `${SITE_URL}/portfolio`,
       lastmod: now,
       changefreq: 'monthly',
       priority: '0.8',
@@ -43,7 +43,7 @@ function generateSitemap() {
   // 각 블로그 포스트 추가
   posts.forEach(post => {
     urls.push({
-      loc: `${SITE_URL}/#/post/${post.slug}`,
+      loc: `${SITE_URL}/post/${post.slug}`,
       lastmod: post.date || now,
       changefreq: 'monthly',
       priority: '0.7',

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <title>Page Not Found</title>
+    <script>
+      // GitHub Pages SPA 리다이렉션
+      // /post/slug 형식의 URL을 /#/post/slug 형식으로 변환
+      (function() {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+
+      // 현재 경로를 해시 라우팅으로 변환
+      var path = window.location.pathname.slice(1);
+      if (path) {
+        sessionStorage.redirect = location.href;
+        var newPath = '/#/' + path;
+        window.location.replace(newPath);
+      } else {
+        window.location.replace('/');
+      }
+    </script>
+  </head>
+  <body>
+    <p>Redirecting...</p>
+  </body>
+</html>
+
