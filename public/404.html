@@ -2,27 +2,25 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8">
-    <title>Page Not Found</title>
+    <title>Redirecting...</title>
     <script>
-      // GitHub Pages SPA 리다이렉션
-      // /post/slug 형식의 URL을 /#/post/slug 형식으로 변환
+      // GitHub Pages SPA 지원
+      // BrowserRouter를 위한 클라이언트 사이드 리다이렉션
       (function() {
-        var redirect = sessionStorage.redirect;
-        delete sessionStorage.redirect;
-        if (redirect && redirect !== location.href) {
-          history.replaceState(null, null, redirect);
-        }
+        var pathSegmentsToKeep = 0;
+        
+        var l = window.location;
+        
+        // 현재 경로와 쿼리 문자열을 sessionStorage에 저장
+        l.replace(
+          l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+          l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + 
+          '/?/' + 
+          l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash
+        );
       })();
-
-      // 현재 경로를 해시 라우팅으로 변환
-      var path = window.location.pathname.slice(1);
-      if (path) {
-        sessionStorage.redirect = location.href;
-        var newPath = '/#/' + path;
-        window.location.replace(newPath);
-      } else {
-        window.location.replace('/');
-      }
     </script>
   </head>
   <body>

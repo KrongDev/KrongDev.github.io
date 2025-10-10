@@ -1,4 +1,5 @@
-import { HashRouter, Routes, Route, useNavigate, useSearchParams, useParams } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter, Routes, Route, useNavigate, useSearchParams, useParams } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import { BlogList } from './components/BlogList';
 import { BlogDetail } from './components/BlogDetail';
@@ -81,12 +82,12 @@ function PortfolioPage() {
 
 export default function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/post/:slug" element={<PostDetailPage />} />
         <Route path="/portfolio" element={<PortfolioPage />} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
