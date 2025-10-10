@@ -14,12 +14,36 @@
           // 개발 서버에서 /_posts/ 경로 처리
           server.middlewares.use((req, res, next) => {
             if (req.url?.startsWith('/_posts/')) {
-              const filename = req.url.replace('/_posts/', '');
-              const filePath = path.resolve(__dirname, '_posts', filename);
-              
-              if (fs.existsSync(filePath)) {
-                res.setHeader('Content-Type', 'text/markdown; charset=utf-8');
-                res.end(fs.readFileSync(filePath, 'utf-8'));
+              try {
+                // URL에서 쿼리 파라미터 제거
+                const urlPath = req.url.split('?')[0];
+                const filename = urlPath.replace('/_posts/', '');
+                
+                // 파일명 검증 (보안)
+                if (filename.includes('..') || !filename.endsWith('.md')) {
+                  res.statusCode = 400;
+                  res.end('Invalid filename');
+                  return;
+                }
+                
+                const filePath = path.resolve(__dirname, '_posts', filename);
+                
+                if (fs.existsSync(filePath)) {
+                  const content = fs.readFileSync(filePath, 'utf-8');
+                  res.setHeader('Content-Type', 'text/markdown; charset=utf-8');
+                  res.setHeader('Cache-Control', 'no-cache');
+                  res.end(content);
+                  return;
+                } else {
+                  console.warn(`[serve-posts] File not found: ${filePath}`);
+                  res.statusCode = 404;
+                  res.end('File not found');
+                  return;
+                }
+              } catch (error) {
+                console.error('[serve-posts] Error:', error);
+                res.statusCode = 500;
+                res.end('Internal server error');
                 return;
               }
             }
