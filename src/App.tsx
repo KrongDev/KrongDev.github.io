@@ -4,6 +4,7 @@ import { Layout } from './components/Layout';
 import { BlogList } from './components/BlogList';
 import { BlogDetail } from './components/BlogDetail';
 import { Portfolio } from './components/Portfolio';
+import { NotFound } from './components/NotFound';
 
 // 홈 페이지 (목록)
 function HomePage() {
@@ -87,6 +88,8 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/post/:slug" element={<PostDetailPage />} />
         <Route path="/portfolio" element={<PortfolioPage />} />
+        {/* 404 - 정의되지 않은 모든 경로 */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

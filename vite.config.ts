@@ -131,6 +131,6 @@
     port: 3000,
     open: true,
   },
-  // GitHub Pages 배포를 위한 base path
-  base: './',
+  // GitHub Pages 배포를 위한 base path (절대 경로)
+  base: '/',
 });

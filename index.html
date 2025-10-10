@@ -40,17 +40,14 @@
       
       <!-- GitHub Pages SPA 지원 (BrowserRouter) -->
       <script>
-        // 404.html에서 인코딩된 URL 복원
-        (function(l) {
-          if (l.search[1] === '/' ) {
-            var decoded = l.search.slice(1).split('&').map(function(s) { 
-              return s.replace(/~and~/g, '&')
-            }).join('?');
-            window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
-            );
+        // 404.html에서 저장한 경로 복원
+        (function() {
+          var redirect = sessionStorage.getItem('redirect');
+          if (redirect) {
+            sessionStorage.removeItem('redirect');
+            history.replaceState(null, null, redirect);
           }
-        }(window.location))
+        })();
       </script>
     </head>
 
