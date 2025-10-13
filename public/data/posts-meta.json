@@ -1,5 +1,26 @@
 [
   {
+    "id": "2025-10-10-java-step2",
+    "slug": "2025-10-10-java-step2",
+    "filename": "2025-10-10-java-step2.md",
+    "title": "Java 객체지향 프로그래밍 마스터",
+    "date": "2025-10-10",
+    "category": "Language",
+    "subcategory": "Java",
+    "tags": [
+      "Java",
+      "OOP",
+      "객체지향",
+      "클래스",
+      "상속",
+      "다형성",
+      "인터페이스",
+      "추상클래스"
+    ],
+    "excerpt": "Java의 객체지향 프로그래밍을 실무 관점에서 깊이 있게 학습합니다.",
+    "author": "Geon Lee"
+  },
+  {
     "id": "2025-10-09-java-step1",
     "slug": "2025-10-09-java-step1",
     "filename": "2025-10-09-java-step1.md",

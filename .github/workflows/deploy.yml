@@ -30,6 +30,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # 이전 커밋도 가져와서 diff 가능하게
         
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -43,11 +45,11 @@ jobs:
           npm install --force
           npm rebuild rollup
         
-      - name: Generate metadata from _posts (Incremental)
+      - name: Generate metadata from _posts (Full Build for CI)
         run: |
-          echo "🚀 Running incremental build (only changed files)..."
-          npm run build:posts:fast
-          echo "✅ Incremental build complete"
+          echo "🚀 Running full build (CI environment - ensuring categories are up-to-date)..."
+          npm run build:posts
+          echo "✅ Full build complete"
           
       - name: Verify generated metadata
         run: |
