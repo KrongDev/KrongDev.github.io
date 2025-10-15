@@ -2,53 +2,17 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- SEO Meta Tags -->
-    <title>Geon Lee - Tech Blog | Full Stack Developer Portfolio</title>
-    <meta name="description" content="보다 넓은 시야를 가지고 싶은 개발자 Geon Lee의 기술 블로그입니다. Java, TypeScript, Python, Spring, Node.js 등 다양한 개발 경험을 공유합니다." />
-    <meta name="keywords" content="Geon Lee, 개발 블로그, Full Stack Developer, Java, TypeScript, Spring Boot, Node.js, React, 프론트엔드, 백엔드, 개발자 포트폴리오" />
-    <meta name="author" content="Geon Lee" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://krongdev.github.io/" />
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://krongdev.github.io/" />
-    <meta property="og:title" content="Geon Lee - Tech Blog | Full Stack Developer" />
-    <meta property="og:description" content="보다 넓은 시야를 가지고 싶은 개발자의 기술 블로그" />
-    <meta property="og:image" content="https://github.com/KrongDev.png" />
-    <meta property="og:locale" content="ko_KR" />
-    
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://krongdev.github.io/" />
-    <meta name="twitter:title" content="Geon Lee - Tech Blog" />
-    <meta name="twitter:description" content="보다 넓은 시야를 가지고 싶은 개발자의 기술 블로그" />
-    <meta name="twitter:image" content="https://github.com/KrongDev.png" />
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BLM7Y5T91Q"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-BLM7Y5T91Q');
-    </script>
+    <title>Redirecting...</title>
     
     <!-- GitHub Pages SPA 지원 -->
     <script>
       // 404 페이지에서 실행되는 스크립트
-      // 현재 경로를 쿼리 파라미터와 sessionStorage 둘 다 사용하여 저장
+      // 현재 경로를 쿼리 파라미터로 홈페이지에 전달
       (function() {
         var redirect = location.pathname + location.search + location.hash;
         
-        // sessionStorage에 저장 (이전 방식 호환)
+        // sessionStorage에도 저장 (fallback)
         sessionStorage.setItem('redirect', redirect);
-        
-        // 쿼리 파라미터로도 전달 (더 안정적)
-        var separator = redirect.indexOf('?') === -1 ? '?' : '&';
         
         // 홈으로 리다이렉트하면서 원래 경로를 쿼리 파라미터로 전달
         location.replace('/?p=' + encodeURIComponent(redirect));
@@ -57,7 +21,6 @@
   </head>
 
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <p>Redirecting...</p>
   </body>
 </html>
