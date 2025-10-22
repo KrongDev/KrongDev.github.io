@@ -1,5 +1,45 @@
 [
   {
+    "id": "2025-10-12-java-step4",
+    "slug": "2025-10-12-java-step4",
+    "filename": "2025-10-12-java-step4.md",
+    "title": "Java 함수형 프로그래밍 (Java 8+)",
+    "date": "2025-10-12",
+    "category": "Language",
+    "subcategory": "Java",
+    "tags": [
+      "Java",
+      "함수형프로그래밍",
+      "Stream",
+      "Lambda",
+      "Optional",
+      "FunctionalProgramming"
+    ],
+    "excerpt": "Java 8+의 함수형 프로그래밍을 Stream API, Lambda, Optional을 중심으로 실무 관점에서 완벽 정리합니다.",
+    "author": "Geon Lee"
+  },
+  {
+    "id": "2025-10-11-java-step3",
+    "slug": "2025-10-11-java-step3",
+    "filename": "2025-10-11-java-step3.md",
+    "title": "Java 컬렉션 & 제네릭",
+    "date": "2025-10-11",
+    "category": "Language",
+    "subcategory": "Java",
+    "tags": [
+      "Java",
+      "Collection",
+      "Generic",
+      "ArrayList",
+      "HashMap",
+      "List",
+      "Set",
+      "Map"
+    ],
+    "excerpt": "Java 컬렉션 프레임워크와 제네릭을 실무 관점에서 깊이 있게 학습합니다.",
+    "author": "Geon Lee"
+  },
+  {
     "id": "2025-10-10-java-step2",
     "slug": "2025-10-10-java-step2",
     "filename": "2025-10-10-java-step2.md",
