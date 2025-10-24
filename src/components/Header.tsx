@@ -1,8 +1,8 @@
 import { Search, FileText, User } from 'lucide-react';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
-import { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate, useLocation, useSearchParams } from 'react-router-dom';
 
 interface HeaderProps {
   onSearch?: (query: string) => void;
@@ -11,7 +11,14 @@ interface HeaderProps {
 export function Header({ onSearch }: HeaderProps) {
   const navigate = useNavigate();
   const location = useLocation();
+  const [searchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState('');
+
+  // URL 파라미터와 검색어 동기화
+  useEffect(() => {
+    const urlSearchQuery = searchParams.get('search') || '';
+    setSearchQuery(urlSearchQuery);
+  }, [searchParams]);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,9 +26,11 @@ export function Header({ onSearch }: HeaderProps) {
   };
 
   const handleLogoClick = () => {
-    navigate('/');
-    setSearchQuery('');
-    onSearch?.('');
+    // 검색 상태를 유지하면서 홈으로 이동
+    const currentParams = new URLSearchParams(searchParams);
+    const queryString = currentParams.toString();
+    const homeUrl = queryString ? `/?${queryString}` : '/';
+    navigate(homeUrl);
   };
 
   const isActive = (path: string) => {
@@ -39,7 +48,7 @@ export function Header({ onSearch }: HeaderProps) {
             <Button
               variant={isActive('/') || isActive('') ? 'default' : 'ghost'}
               size="sm"
-              onClick={() => navigate('/')}
+              onClick={handleLogoClick}
               className="gap-2"
             >
               <FileText className="w-4 h-4" />

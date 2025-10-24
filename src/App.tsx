@@ -57,9 +57,19 @@ function HomePage() {
 function PostDetailPage() {
   const navigate = useNavigate();
   const { slug } = useParams<{ slug: string }>();
+  const [searchParams] = useSearchParams();
 
   const handleBack = () => {
-    navigate('/');
+    // 브라우저 히스토리를 사용하여 뒤로가기 (검색 상태 유지)
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      // 히스토리가 없으면 검색 파라미터를 유지하면서 홈으로 이동
+      const currentParams = new URLSearchParams(searchParams);
+      const queryString = currentParams.toString();
+      const backUrl = queryString ? `/?${queryString}` : '/';
+      navigate(backUrl);
+    }
   };
 
   return (

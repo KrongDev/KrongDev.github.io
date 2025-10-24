@@ -11,12 +11,12 @@
     "name": "Programming Language",
     "icon": "📝",
     "description": "프로그래밍 언어",
-    "count": 5,
+    "count": 7,
     "subcategories": [
       {
         "id": "Java",
         "name": "Java",
-        "count": 5
+        "count": 7
       }
     ]
   },
