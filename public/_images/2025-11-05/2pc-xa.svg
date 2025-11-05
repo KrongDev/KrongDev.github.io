@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520">
+  <style>
+    .title { font: 700 24px sans-serif; }
+    .box { fill: #fefce8; stroke: #eab308; stroke-width: 2; rx: 10 }
+    .res { fill: #fff; stroke: #eab308; stroke-width: 1.5; rx: 6 }
+    .arrow { stroke: #1f2937; stroke-width: 2; marker-end: url(#arrow) }
+    .label { font: 700 14px sans-serif; }
+    .desc { font: 600 12px sans-serif; fill: #4b5563 }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#1f2937" />
+    </marker>
+  </defs>
+  <text x="20" y="36" class="title">2PC & XA</text>
+
+  <rect class="box" x="60" y="70" width="1080" height="380" />
+  <text x="80" y="100" class="label">코디네이터(트랜잭션 매니저)</text>
+  <rect class="res" x="80" y="120" width="240" height="60" />
+  <text x="100" y="155" class="desc">Prepare → Commit/Abort</text>
+
+  <rect class="res" x="420" y="160" width="250" height="70" />
+  <text x="440" y="195" class="label">리소스 A (XA Resource)</text>
+  <rect class="res" x="420" y="260" width="250" height="70" />
+  <text x="440" y="295" class="label">리소스 B (XA Resource)</text>
+  <rect class="res" x="720" y="210" width="380" height="70" />
+  <text x="740" y="245" class="label">전역 트랜잭션(XID)</text>
+
+  <!-- Phase arrows -->
+  <line class="arrow" x1="320" y1="150" x2="420" y2="195" />
+  <text x="330" y="175" class="desc">Phase 1: prepare</text>
+  <line class="arrow" x1="320" y1="180" x2="420" y2="295" />
+  <text x="330" y="260" class="desc">prepare</text>
+  <line class="arrow" x1="320" y1="150" x2="720" y2="245" />
+  <text x="470" y="150" class="desc">XID</text>
+
+  <line class="arrow" x1="420" y1="230" x2="320" y2="150" />
+  <text x="350" y="210" class="desc">vote</text>
+  <line class="arrow" x1="420" y1="330" x2="320" y2="180" />
+  <text x="350" y="320" class="desc">vote</text>
+
+  <line class="arrow" x1="320" y1="150" x2="420" y2="230" />
+  <text x="330" y="220" class="desc">Phase 2: commit</text>
+  <line class="arrow" x1="320" y1="180" x2="420" y2="330" />
+  <text x="330" y="350" class="desc">commit/abort</text>
+
+  <text x="80" y="380" class="desc">장점: 분산 일관성 확보. 단점: 블로킹, 성능 저하, 단일 장애 지점</text>
+  <text x="80" y="405" class="desc">XA: 이 표준 인터페이스를 통해 DB/메시지 브로커 등 리소스를 2PC로 묶음</text>
+</svg>
+

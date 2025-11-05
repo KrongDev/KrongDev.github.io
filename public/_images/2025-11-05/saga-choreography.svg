@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420">
+  <style>
+    .title { font: 700 24px sans-serif; }
+    .actor { font: 600 14px sans-serif; }
+    .lane { stroke: #ccc; stroke-width: 1; }
+    .evt { fill: #eef7ff; stroke: #2e7dd7; stroke-width: 1.5; rx: 6 }
+    .arrow { stroke: #333; stroke-width: 2; marker-end: url(#arrow) }
+    .label { font: 600 12px sans-serif; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333" />
+    </marker>
+  </defs>
+  <text x="20" y="34" class="title">Saga - Choreography</text>
+  <line class="lane" x1="120" y1="60" x2="120" y2="380" />
+  <line class="lane" x1="480" y1="60" x2="480" y2="380" />
+  <line class="lane" x1="840" y1="60" x2="840" y2="380" />
+  <text x="60" y="50" class="actor">Order</text>
+  <text x="420" y="50" class="actor">Payment</text>
+  <text x="780" y="50" class="actor">Inventory</text>
+
+  <rect class="evt" x="60" y="90" width="120" height="32" />
+  <text x="70" y="110" class="label">OrderCreated</text>
+  <line class="arrow" x1="180" y1="106" x2="480" y2="106" />
+  <text x="260" y="100" class="label">event</text>
+
+  <rect class="evt" x="420" y="140" width="120" height="32" />
+  <text x="430" y="160" class="label">PaymentApproved</text>
+  <line class="arrow" x1="540" y1="156" x2="840" y2="156" />
+  <text x="620" y="150" class="label">event</text>
+
+  <rect class="evt" x="780" y="190" width="120" height="32" />
+  <text x="790" y="210" class="label">InventoryReserved</text>
+  <line class="arrow" x1="780" y1="226" x2="120" y2="226" />
+  <text x="380" y="220" class="label">event → confirm</text>
+
+  <rect class="evt" x="780" y="260" width="120" height="32" />
+  <text x="786" y="280" class="label">ReservationFailed</text>
+  <line class="arrow" x1="780" y1="296" x2="480" y2="296" />
+  <text x="580" y="290" class="label">compensation</text>
+
+  <rect class="evt" x="420" y="310" width="120" height="32" />
+  <text x="430" y="330" class="label">RefundIssued</text>
+  <line class="arrow" x1="420" y1="346" x2="120" y2="346" />
+  <text x="230" y="340" class="label">compensation → cancel</text>
+</svg>
+

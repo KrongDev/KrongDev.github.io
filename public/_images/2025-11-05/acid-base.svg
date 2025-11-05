@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520">
+  <style>
+    .title { font: 700 24px sans-serif; }
+    .boxA { fill: #eef2ff; stroke: #6366f1; stroke-width: 2; rx: 10 }
+    .boxB { fill: #ecfeff; stroke: #06b6d4; stroke-width: 2; rx: 10 }
+    .label { font: 700 16px sans-serif; }
+    .item { font: 600 13px sans-serif; fill: #111827 }
+    .desc { font: 600 12px sans-serif; fill: #4b5563 }
+    .vs { font: 800 18px sans-serif; fill: #6b7280 }
+  </style>
+  <text x="20" y="36" class="title">ACID vs BASE</text>
+
+  <rect class="boxA" x="60" y="70" width="480" height="400" />
+  <text x="80" y="100" class="label">ACID (RDB 중심 트랜잭션)</text>
+  <text x="80" y="135" class="item">A - Atomicity</text>
+  <text x="80" y="155" class="desc">전체가 성공하거나, 전부 롤백</text>
+  <text x="80" y="190" class="item">C - Consistency</text>
+  <text x="80" y="210" class="desc">무결성 제약을 항상 만족</text>
+  <text x="80" y="245" class="item">I - Isolation</text>
+  <text x="80" y="265" class="desc">동시 트랜잭션 간 간섭 최소화(격리수준)</text>
+  <text x="80" y="300" class="item">D - Durability</text>
+  <text x="80" y="320" class="desc">커밋되면 영구 저장</text>
+  <text x="80" y="360" class="item">적합</text>
+  <text x="80" y="380" class="desc">단일 서비스/단일 DB, 강한 일관성 요구</text>
+
+  <text x="570" y="280" class="vs">↔</text>
+
+  <rect class="boxB" x="660" y="70" width="480" height="400" />
+  <text x="680" y="100" class="label">BASE (대규모 분산 시스템)</text>
+  <text x="680" y="135" class="item">Basically Available</text>
+  <text x="680" y="155" class="desc">항상 가용성을 우선</text>
+  <text x="680" y="190" class="item">Soft state</text>
+  <text x="680" y="210" class="desc">일시적으로 불일치 상태 허용</text>
+  <text x="680" y="245" class="item">Eventual consistency</text>
+  <text x="680" y="265" class="desc">시간이 지나면 일관성 수렴</text>
+  <text x="680" y="300" class="item">적합</text>
+  <text x="680" y="320" class="desc">MSA, 지연 일관성 허용 도메인</text>
+</svg>
+

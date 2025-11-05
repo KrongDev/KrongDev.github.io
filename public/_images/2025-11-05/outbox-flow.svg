@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420">
+  <style>
+    .title { font: 700 24px sans-serif; }
+    .box { fill: #f0fdf4; stroke: #16a34a; stroke-width: 2; rx: 8 }
+    .db { fill: #ffffff; stroke: #16a34a; stroke-width: 1.5; rx: 6 }
+    .arrow { stroke: #14532d; stroke-width: 2; marker-end: url(#arrow) }
+    .label { font: 600 12px sans-serif; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#14532d" />
+    </marker>
+  </defs>
+  <text x="20" y="34" class="title">Transactional Outbox + Relay</text>
+  <rect class="box" x="60" y="70" width="460" height="280" />
+  <text x="80" y="100" class="label">Local Transaction</text>
+
+  <rect class="db" x="90" y="130" width="200" height="60" />
+  <text x="110" y="165" class="label">Business Data (orders)</text>
+
+  <rect class="db" x="90" y="210" width="200" height="60" />
+  <text x="120" y="245" class="label">Outbox(pending)</text>
+
+  <rect class="db" x="330" y="210" width="170" height="60" />
+  <text x="350" y="245" class="label">Commit</text>
+
+  <line class="arrow" x1="290" y1="240" x2="330" y2="240" />
+  <text x="250" y="230" class="label">same TX</text>
+
+  <rect class="box" x="560" y="70" width="560" height="280" />
+  <text x="580" y="100" class="label">Relay / Broker</text>
+
+  <rect class="db" x="590" y="130" width="220" height="60" />
+  <text x="610" y="165" class="label">Relay(Daemon/Scheduler)</text>
+
+  <rect class="db" x="590" y="210" width="220" height="60" />
+  <text x="650" y="245" class="label">Publish → Kafka</text>
+
+  <rect class="db" x="840" y="210" width="250" height="60" />
+  <text x="860" y="245" class="label">Mark Published / Retry / DLQ</text>
+
+  <line class="arrow" x1="520" y1="240" x2="560" y2="240" />
+  <text x="505" y="230" class="label">poll pending</text>
+</svg>
+

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="360" viewBox="0 0 1000 360">
+  <style>
+    .title { font: 700 22px sans-serif; }
+    .step { fill: #ecfeff; stroke: #06b6d4; stroke-width: 2; rx: 8 }
+    .arrow { stroke: #0f172a; stroke-width: 2; marker-end: url(#arrow) }
+    .label { font: 600 12px sans-serif; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#0f172a" />
+    </marker>
+  </defs>
+  <text x="20" y="34" class="title">TCC Flow</text>
+
+  <rect class="step" x="80" y="80" width="220" height="70" />
+  <text x="100" y="115" class="label">Try: Reserve resource (TTL)</text>
+
+  <rect class="step" x="380" y="80" width="220" height="70" />
+  <text x="400" y="115" class="label">Confirm: Commit</text>
+
+  <rect class="step" x="380" y="200" width="220" height="70" />
+  <text x="400" y="235" class="label">Cancel: Release</text>
+
+  <line class="arrow" x1="300" y1="115" x2="380" y2="115" />
+  <text x="305" y="105" class="label">success</text>
+
+  <line class="arrow" x1="300" y1="115" x2="380" y2="235" />
+  <text x="320" y="185" class="label">fail/timeout</text>
+
+  <rect class="step" x="700" y="140" width="220" height="70" />
+  <text x="720" y="175" class="label">Side effects (notify, event)</text>
+
+  <line class="arrow" x1="600" y1="115" x2="700" y2="175" />
+  <line class="arrow" x1="600" y1="235" x2="700" y2="175" />
+</svg>
+
