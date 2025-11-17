@@ -3,7 +3,19 @@ import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 import { Separator } from './ui/separator';
-import { Mail, Github, Linkedin, ExternalLink, Calendar, MapPin, Briefcase, GraduationCap, Code2, Award } from 'lucide-react';
+import {
+  Mail,
+  Github,
+  Linkedin,
+  ExternalLink,
+  Calendar,
+  MapPin,
+  Briefcase,
+  GraduationCap,
+  Code2,
+  Award,
+  Presentation
+} from 'lucide-react';
 
 export function Portfolio() {
   // 포트폴리오 데이터 (나중에 JSON이나 마크다운으로 분리 가능)
@@ -75,6 +87,20 @@ export function Portfolio() {
       tags: ['React', 'TypeScript', 'Vite', 'GitHub Pages'],
       link: 'https://krongdev.github.io',
       github: 'https://github.com/KrongDev/KrongDev.github.io',
+    },
+    {
+      title: 'ShushPlace(Qurious)',
+      description: 'Amazon Q Developer 해커톤 참여 프로젝트(대회 종료 후 aws resource반환으로 인해 Sample 서비스를 링크합니다.)',
+      tags: ['React', 'TypeScript', 'Vite', 'AWS', 'terraform', 'S3', 'DynamoDB', 'Amazon Lambda', 'Amazon Bedrock'],
+      link: 'https://spot-map-swart.vercel.app/',
+      github: 'https://github.com/qurious-aws-hackathon/team22-aws-hackathon',
+      presentation: 'https://docs.google.com/presentation/d/1hVFkY6ZVkvF0UXU3gCZzJPbAq6BWlGeswUbgSlLULLM/edit?slide=id.p1#slide=id.p1',
+    },
+    {
+      title: 'Asyncsite',
+      description: '스터디를 모집하거나 참여하고 싶은 개발자들을 위한 플랫폼',
+      tags: ['React', 'TypeScript', 'Vite', 'Java', 'Spring Boot', 'Spring Cloud', 'Mysql', 'Kafka'],
+      link: 'https://asyncsite.com/',
     }
   ];
 
@@ -233,15 +259,25 @@ export function Portfolio() {
                         <ExternalLink className="w-5 h-5" />
                       </a>
                     )}
-                    {project.github && (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        <Github className="w-5 h-5" />
-                      </a>
+                    {project?.github && (
+                        <a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          <Github className="w-5 h-5" />
+                        </a>
+                    )}
+                    {project?.presentation && (
+                        <a
+                            href={project.presentation}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          <Presentation className="w-5 h-5" />
+                        </a>
                     )}
                   </div>
                 </CardTitle>
