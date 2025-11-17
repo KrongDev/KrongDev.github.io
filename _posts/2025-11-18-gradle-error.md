@@ -12,7 +12,7 @@ author: "Geon Lee"
 Gradle을 사용하여 모듈을 패키지(라이브러리)로 배포할 때 자주 마주치는 generateMetadataFileForMavenPublication FAILED 오류의 원인과 해결책, 그리고 그 뒤에 숨겨진 개발 철학적 고민을 정리합니다.
 
 
-![gradle-error-01](../public/_images/gradle-error-01.png)
+![gradle-error-01](https://raw.githubusercontent.com/KrongDev/KrongDev.github.io/refs/heads/main/public/_images/gradle-error-01.png)
 
 ### 오류 원인: 버전 정보의 비명시성
 이 오류는 배포 과정에서 의존성(Dependency) 라이브러리들의 버전이 명확하게 명시되어 있지 않기 때문에 발생합니다.
@@ -38,7 +38,7 @@ Spring Boot는 자동 버전 관리(BOM)를 통해 개발자가 버전을 생략
 
 2. 버전 검증 과정 스킵 (Gradle 8.7+ 해결책)
    - https://github.com/gradle/gradle/issues/28122 논의를 거쳐, Gradle 8.7 버전부터 버전 검증 테스트를 스킵하는 방법이 공식적으로 도입되었습니다.
-   ![gradle-error-01](../public/_images/gradle-error-02.png)
+   ![gradle-error-01](https://raw.githubusercontent.com/KrongDev/KrongDev.github.io/refs/heads/main/public/_images/gradle-error-02.png)
    - 이 방법을 사용하면 명시적인 버전 없이도 메타데이터 파일을 생성하고 패키지를 배포할 수 있습니다.
    - 선택 이유: 작성자는 Spring Boot의 편리성을 유지하기 위해 이 방법을 선택했습니다.  
    
