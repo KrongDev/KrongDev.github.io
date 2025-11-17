@@ -1,5 +1,84 @@
 [
   {
+    "id": "2025-11-18-gradle-error",
+    "slug": "2025-11-18-gradle-error",
+    "filename": "2025-11-18-gradle-error.md",
+    "title": "[gradle] generateMetadataFileForMavenPublication FAILED",
+    "date": "2025-11-18",
+    "category": "Framework",
+    "subcategory": "Gradle",
+    "tags": [
+      "Gradle",
+      "generateMetadataFileForMavenPublication",
+      "publish"
+    ],
+    "excerpt": "gradle를 사용하여 module를 package로 publish할 때 발생하는 문제를 해결하는 과정입니다.",
+    "author": "Geon Lee"
+  },
+  {
+    "id": "2025-11-17-java-step9",
+    "slug": "2025-11-17-java-step9",
+    "filename": "2025-11-17-java-step9.md",
+    "title": "실전 프로젝트 & 베스트 프랙티스",
+    "date": "2025-11-17",
+    "category": "Language",
+    "subcategory": "Java",
+    "tags": [
+      "Java",
+      "BestPractices",
+      "CleanCode",
+      "Testing",
+      "TDD",
+      "Maven",
+      "Gradle",
+      "EffectiveJava"
+    ],
+    "excerpt": "실무에서 바로 적용할 수 있는 Java 베스트 프랙티스와 실전 프로젝트를 통해 코드를 작성하는 방법을 학습합니다.",
+    "author": "Geon Lee"
+  },
+  {
+    "id": "2025-11-05-platform-distributed-transaction",
+    "slug": "2025-11-05-platform-distributed-transaction",
+    "filename": "2025-11-05-platform-distributed-transaction.md",
+    "title": "Platform MSA에서의 분산 트랜잭션 설계",
+    "date": "2025-11-05",
+    "category": "Platform",
+    "subcategory": "MSA",
+    "tags": [
+      "MSA",
+      "Distributed Transaction",
+      "Saga",
+      "TCC",
+      "Outbox",
+      "Idempotency",
+      "Kafka",
+      "Spring"
+    ],
+    "excerpt": "마이크로서비스 환경에서 데이터 일관성을 보장하기 위한 분산 트랜잭션 전략과 실무 패턴을 정리합니다.",
+    "author": "Geon Lee"
+  },
+  {
+    "id": "2025-11-04-java-step8",
+    "slug": "2025-11-04-java-step8",
+    "filename": "2025-11-04-java-step8.md",
+    "title": "최신 Java 기능 (Java 17+)",
+    "date": "2025-11-04",
+    "category": "Language",
+    "subcategory": "Java",
+    "tags": [
+      "Java",
+      "Java17",
+      "Java21",
+      "Records",
+      "SealedClasses",
+      "PatternMatching",
+      "VirtualThreads",
+      "TextBlocks"
+    ],
+    "excerpt": "Java 8부터 최신 LTS 버전까지의 혁신적인 기능들을 실무 관점에서 깊이 있게 학습합니다.",
+    "author": "Geon Lee"
+  },
+  {
     "id": "2025-10-23-java-step6",
     "slug": "2025-10-23-java-step6",
     "filename": "2025-10-23-java-step6.md",

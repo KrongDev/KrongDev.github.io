@@ -7,15 +7,51 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://krongdev.github.io/</loc>
-    <lastmod>2025-10-22T00:14:05.209Z</lastmod>
+    <lastmod>2025-11-17T18:36:51.880Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://krongdev.github.io/portfolio</loc>
-    <lastmod>2025-10-22T00:14:05.209Z</lastmod>
+    <lastmod>2025-11-17T18:36:51.880Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://krongdev.github.io/post/2025-11-18-gradle-error</loc>
+    <lastmod>2025-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://krongdev.github.io/post/2025-11-17-java-step9</loc>
+    <lastmod>2025-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://krongdev.github.io/post/2025-11-05-platform-distributed-transaction</loc>
+    <lastmod>2025-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://krongdev.github.io/post/2025-11-04-java-step8</loc>
+    <lastmod>2025-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://krongdev.github.io/post/2025-10-23-java-step6</loc>
+    <lastmod>2025-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://krongdev.github.io/post/2025-10-23-java-step7</loc>
+    <lastmod>2025-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://krongdev.github.io/post/2025-10-13-java-step5</loc>
@@ -54,20 +90,44 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://krongdev.github.io/?category=Framework</loc>
+    <lastmod>2025-11-17T18:36:51.880Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://krongdev.github.io/?category=Gradle</loc>
+    <lastmod>2025-11-17T18:36:51.880Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://krongdev.github.io/?category=Language</loc>
-    <lastmod>2025-10-22T00:14:05.209Z</lastmod>
+    <lastmod>2025-11-17T18:36:51.880Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://krongdev.github.io/?category=Java</loc>
-    <lastmod>2025-10-22T00:14:05.209Z</lastmod>
+    <lastmod>2025-11-17T18:36:51.880Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://krongdev.github.io/?category=Platform</loc>
+    <lastmod>2025-11-17T18:36:51.880Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://krongdev.github.io/?category=MSA</loc>
+    <lastmod>2025-11-17T18:36:51.880Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://krongdev.github.io/?category=Life</loc>
-    <lastmod>2025-10-22T00:14:05.209Z</lastmod>
+    <lastmod>2025-11-17T18:36:51.880Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

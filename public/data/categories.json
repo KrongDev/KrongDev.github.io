@@ -11,12 +11,12 @@
     "name": "Programming Language",
     "icon": "📝",
     "description": "프로그래밍 언어",
-    "count": 7,
+    "count": 9,
     "subcategories": [
       {
         "id": "Java",
         "name": "Java",
-        "count": 7
+        "count": 9
       }
     ]
   },
@@ -25,7 +25,14 @@
     "name": "Framework",
     "icon": "🚀",
     "description": "프레임워크 & 라이브러리",
-    "count": 0
+    "count": 1,
+    "subcategories": [
+      {
+        "id": "Gradle",
+        "name": "Gradle",
+        "count": 1
+      }
+    ]
   },
   {
     "id": "Database",
@@ -39,7 +46,14 @@
     "name": "Platform",
     "icon": "☁️",
     "description": "플랫폼 & 인프라",
-    "count": 0
+    "count": 1,
+    "subcategories": [
+      {
+        "id": "MSA",
+        "name": "MSA",
+        "count": 1
+      }
+    ]
   },
   {
     "id": "Life",
