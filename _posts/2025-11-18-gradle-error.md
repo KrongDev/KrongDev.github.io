@@ -1,5 +1,5 @@
 ---
-title: "[gradle] generateMetadataFileForMavenPublication FAILED"
+title: "[gradle] generateMetadataFileForMavenPublication FAILED 오류 해결 가이드"
 date: "2025-11-18"
 category: "Framework"
 subcategory: "Gradle"
