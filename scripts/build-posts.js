@@ -18,6 +18,7 @@ const CATEGORY_CONFIG = [
   { id: 'Framework', name: 'Framework', icon: '🚀', description: '프레임워크 & 라이브러리' },
   { id: 'Database', name: 'Database', icon: '🗄️', description: '데이터베이스' },
   { id: 'Platform', name: 'Platform', icon: '☁️', description: '플랫폼 & 인프라' },
+  { id: 'Algorithm', name: 'Algorithm', icon: '🧩', description: '알고리즘 & 코딩테스트' },
   { id: 'Life', name: 'Life', icon: '🌱', description: '개발 일상' },
 ];
 
